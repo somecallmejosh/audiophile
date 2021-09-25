@@ -44,16 +44,104 @@
         </div>
       </section>
     </div>
-    <section aria-labelledby="#features">
-      <h3 id="features" class="mb-6 text-3xl font-bold">Features</h3>
+    <section aria-labelledby="features">
+      <h3 id="features" class="mb-8 text-3xl font-bold">Features</h3>
       <div
         v-html="$md.render(product.features)"
         class="space-y-6 opacity-50"
       ></div>
     </section>
+    <section aria-label="Product images" class="grid gap-6 md:grid-cols-4">
+      <div class="space-y-6 md:col-span-2 md:row-span-2">
+        <div>
+          <picture
+            ><source
+              :srcset="`/assets/${product.gallery.first.desktop}`"
+              media="(min-width: 1024px)"/>
+            <source
+              :srcset="`/assets/${product.gallery.first.tablet}`"
+              media="(min-width: 768px)"/>
+            <source
+              :srcset="`/assets/${product.gallery.first.mobile}`"
+              media="(min-width: 300px)"/>
+            <img
+              :src="`/assets/${product.gallery.first.desktop}`"
+              class="object-cover w-full rounded-lg"
+              alt="Product"
+          /></picture>
+        </div>
+        <div>
+          <picture
+            ><source
+              :srcset="`/assets/${product.gallery.second.desktop}`"
+              media="(min-width: 1024px)"/>
+            <source
+              :srcset="`/assets/${product.gallery.second.tablet}`"
+              media="(min-width: 768px)"/>
+            <source
+              :srcset="`/assets/${product.gallery.second.mobile}`"
+              media="(min-width: 300px)"/>
+            <img
+              :src="`/assets/${product.gallery.second.desktop}`"
+              class="object-cover w-full rounded-lg"
+              alt="Product"
+          /></picture>
+        </div>
+      </div>
+      <div class="md:col-span-2 md:row-span-2">
+        <picture
+          ><source
+            :srcset="`/assets/${product.gallery.third.desktop}`"
+            media="(min-width: 1024px)"/>
+          <source
+            :srcset="`/assets/${product.gallery.third.tablet}`"
+            media="(min-width: 768px)"/>
+          <source
+            :srcset="`/assets/${product.gallery.third.mobile}`"
+            media="(min-width: 300px)"/>
+          <img
+            :src="`/assets/${product.gallery.third.desktop}`"
+            class="object-cover w-full rounded-lg md:h-full"
+            alt="Product"
+        /></picture>
+      </div>
+    </section>
+    <section aria-labelledby="may-also-like" class="text-center ">
+      <h3 id="may-also-like" class="mb-8 text-3xl font-bold">
+        You may also like
+      </h3>
+      <ul class="grid gap-12 md:gap-6 md:grid-cols-3">
+        <li v-for="item in product.others" :key="item.slug" class="space-y-8">
+          <picture
+            ><source
+              :srcset="`/assets/${item.image.desktop}`"
+              media="(min-width: 1024px)"/>
+            <source
+              :srcset="`/assets/${item.image.tablet}`"
+              media="(min-width: 768px)"/>
+            <source
+              :srcset="`/assets/${item.image.mobile}`"
+              media="(min-width: 300px)"/>
+            <img
+              :src="`/assets/${item.image.desktop}`"
+              class="object-cover w-full rounded-lg"
+              alt="Product"
+          /></picture>
+          <div class="space-y-6">
+            <h2 class="text-3xl font-bold">{{ item.name }}</h2>
+            <nuxt-link
+              :to="`/${categoryFromSlug(item.slug)}/${item.slug}`"
+              class="btn btn-primary"
+              >See Product</nuxt-link
+            >
+          </div>
+        </li>
+      </ul>
+    </section>
     <div class="pt-16">
       <category-nav />
     </div>
+    <product-validation />
   </div>
 </template>
 
@@ -69,6 +157,11 @@ export default {
   computed: {
     product() {
       return this.$store.getters.getProduct(this.$route.params.product);
+    }
+  },
+  methods: {
+    categoryFromSlug(slug) {
+      return this.$store.getters.getCategoryFromSlug(slug);
     }
   }
 };

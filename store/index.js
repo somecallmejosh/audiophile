@@ -18,6 +18,12 @@ export const getters = {
   },
   filterCategoryItems: state => category => {
     return state.products.json.hits.filter(item => item.category === category);
+  },
+  getCategoryFromSlug: state => slug => {
+    const product = state.products.json.hits.filter(
+      product => product.slug === slug
+    )[0];
+    return product.category;
   }
 };
 

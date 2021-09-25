@@ -65,6 +65,7 @@
       <div class="pt-16">
         <category-nav />
       </div>
+      <product-validation />
     </div>
   </div>
 </template>
