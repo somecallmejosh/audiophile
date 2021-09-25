@@ -19,6 +19,7 @@
           class="flex items-center h-full lg:w-1/3"
           to="/"
           aria-label="Home page"
+          @click.native="sidePanelVisibility(false)"
           ><logo
         /></nuxt-link>
         <nav
@@ -181,8 +182,8 @@ export default {
     };
   },
   methods: {
-    sidePanelVisibility() {
-      this.$store.dispatch("toggleSidepanelVisibility");
+    sidePanelVisibility(payload) {
+      this.$store.dispatch("toggleSidepanelVisibility", payload);
     }
   }
 };

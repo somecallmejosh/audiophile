@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-6xl px-6 py-24 mx-auto space-y-20 overflow-y-scroll md:space-y-32 md:px-10 lg:px-0 product-page"
+    class="max-w-6xl px-6 py-12 mx-auto space-y-20 overflow-y-scroll md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
   >
     <div>
       <nuxt-link :to="`/${$route.params.category}`" class="block mb-6"
@@ -23,12 +23,14 @@
               media="(min-width: 300px)"/>
             <img
               :src="`/assets/${product.image.desktop}`"
-              class="object-cover w-full rounded-lg"
+              class="object-cover w-full h-full rounded-lg"
               alt="Product"
+              height="1120"
+              width="1080"
           /></picture>
         </div>
-        <div class="flex items-center md:py-24 md:col-span-4">
-          <div class="space-y-8">
+        <div class="flex items-center md:col-span-4">
+          <div class="space-y-8 md:py-24">
             <div>
               <p
                 v-if="product.new"
@@ -39,7 +41,17 @@
               <h1 class="text-5xl font-bold">{{ product.name }}</h1>
             </div>
             <p class="opacity-50">{{ product.description }}</p>
-            <p class="font-bold">$ {{ product.price }}</p>
+            <p class="text-2xl font-bold">$ {{ product.price }}</p>
+            <div class="flex items-center space-x-6">
+              <div class="flex w-auto h-12 bg-ap-gray-200">
+                <button@click="productCounter >= 1 ? productCounter-- : ''" class="px-4 text-center" :class="productCounter === 0 ? 'opacity-25 pointer-events-none' : 'opacity-100'">-</button@click=>
+                <input type="text" v-model="productCounter" class="w-8 text-center bg-ap-gray-200" />
+                <button @click="productCounter++" class="px-4 text-center">
+                  +
+                </button>
+              </div>
+              <button class="btn btn-primary" :class="productCounter === 0 ? 'opacity-25 pointer-events-none' : 'opacity-100'" :disabled="productCounter === 0">Add to Cart</button>
+            </div>
           </div>
         </div>
       </section>
@@ -154,6 +166,9 @@ export default {
       store.dispatch("fetchProducts", product);
     }
   },
+  data: () => ({
+    productCounter: 1
+  }),
   computed: {
     product() {
       return this.$store.getters.getProduct(this.$route.params.product);

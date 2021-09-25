@@ -41,6 +41,8 @@
             src="/assets/home/desktop/image-hero.jpg"
             class="absolute top-1/2 left-1/2 -translate-x-1/2 lg:relative z-0 transform -translate-y-96 lg:-translate-y-20 w-[417px] md:w-[750px] lg:h-[750px] lg:w-auto max-w-reset"
             alt="Audiophile headphones"
+            width="1481"
+            height="750"
         /></picture>
       </div>
     </div>
