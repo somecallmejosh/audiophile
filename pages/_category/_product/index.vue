@@ -44,9 +44,26 @@
             <p class="text-2xl font-bold">$ {{ product.price }}</p>
             <div class="flex items-center space-x-6">
               <div class="flex w-auto h-12 bg-ap-gray-200">
-                <button@click="productCounter >= 1 ? productCounter-- : ''" class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200" :class="productCounter === 0 ? 'opacity-25 pointer-events-none' : 'opacity-100'">-</button>
-                <input type="text" v-model="productCounter" class="w-8 text-center bg-ap-gray-200" />
-                <button @click="productCounter++" class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200">
+                <button
+                  @click="productCounter >= 1 ? productCounter-- : ''"
+                  class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+                  :class="
+                    productCounter === 0
+                      ? 'opacity-25 pointer-events-none'
+                      : 'opacity-100'
+                  "
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  v-model="productCounter"
+                  class="w-8 text-center bg-ap-gray-200"
+                />
+                <button
+                  @click="productCounter++"
+                  class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+                >
                   +
                 </button>
               </div>
@@ -55,7 +72,14 @@
                 <span v-else>Add to Cart</span>
               </button>
             </div>
-            <p v-if="productInCart"><strong>{{productQuantityInCart}}</strong> <span class="opacity-50"><em>{{ product.name}}</em>  <span v-if="productQuantityInCart > 1">are</span><span v-else>is</span> in your shopping cart.</span></p>
+            <p v-if="productInCart">
+              <strong>{{ productQuantityInCart }}</strong>
+              <span class="opacity-50"
+                ><em>{{ product.name }}</em>
+                <span v-if="productQuantityInCart > 1">are</span
+                ><span v-else>is</span> in your shopping cart.</span
+              >
+            </p>
           </div>
         </div>
       </section>
@@ -171,7 +195,7 @@ export default {
     }
   },
   data: () => ({
-    productCounter: 1,
+    productCounter: 1
   }),
   computed: {
     product() {
@@ -180,27 +204,34 @@ export default {
     productPositionInCart() {
       return this.$store.state.cart.findIndex(
         x => x.itemId === this.product.id
-      )
+      );
     },
     productInCart() {
-      this.productPositionInCart > -1 ? this.productCounter = this.$store.state.cart[this.productPositionInCart].quantity : this.productCounter = 1
+      this.productPositionInCart > -1
+        ? (this.productCounter = this.$store.state.cart[
+            this.productPositionInCart
+          ].quantity)
+        : (this.productCounter = 1);
       return this.productPositionInCart > -1;
     },
     productQuantityInCart() {
-      return this.$store.state.cart[this.productPositionInCart].quantity
+      return this.$store.state.cart[this.productPositionInCart].quantity;
     }
   },
   methods: {
     updateCart() {
       this.$store.dispatch("updateCart", {
         itemId: this.product.id,
-        quantity: this.productCounter
-      })
+        quantity: this.productCounter,
+        name: this.product.name,
+        price: this.product.price,
+        image: this.product.slug
+      });
     },
     categoryFromSlug(slug) {
       return this.$store.getters.getCategoryFromSlug(slug);
     }
-  },
+  }
 };
 </script>
 

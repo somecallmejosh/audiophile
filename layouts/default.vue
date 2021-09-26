@@ -44,6 +44,7 @@
           </ul>
         </nav>
         <button
+          @click="toggleCartVisibility()"
           aria-label="View shopping cart"
           class="flex items-center h-full ml-auto hover:text-ap-orange-200 lg:w-1/3 lg:justify-end"
         >
@@ -69,7 +70,7 @@
             class="flex h-full mx-auto mb-12 site-nav justify-self-center md:m-0"
           >
             <ul
-              class="flex flex-col items-center h-full space-x-0 space-y-4 text-sm font-bold tracking-widest uppercase md:space-x-4 md:flex-row md:space-y-0"
+              class="flex flex-col items-center h-full space-x-0 space-y-4 text-sm font-bold tracking-widest uppercase md:space-x-4 md:flex-row md:space-y-0 lg:top-28"
             >
               <li
                 class="flex items-center h-full"
@@ -153,6 +154,80 @@
         ></button>
       </nav>
     </transition>
+
+    <transition name="slide-down-right">
+      <div
+        v-if="cartIsVisible"
+        aria-label="Items in shopping cart"
+        class="fixed z-10 w-screen h-screen max-h-screen overflow-y-scroll transition-transform pt-30 duration-0 lg:pt-24"
+      >
+        <div class="relative w-screen max-w-6xl mx-auto">
+          <div
+            class="absolute z-10 w-11/12 p-6 space-y-12 transition-transform duration-300 ease-in-out transform -translate-x-1/2 bg-white shadow-xl left-1/2 md:max-w-md md:right-6 wrapper rounded-xl top-24 md:translate-x-0 md:left-auto lg:top-4 lg:right-0"
+          >
+            <h2 class="mb-2 text-2xl font-bold">
+              Cart ({{ shoppingCartItemCount }})
+            </h2>
+            <ul class="space-y-6">
+              <li
+                v-for="product in $store.state.cart"
+                :key="product.id"
+                class="flex items-center w-full"
+              >
+                <div class="w-16 h-16 mr-4">
+                  <img
+                    :src="`/assets/cart/image-${product.image}.jpg`"
+                    alt=""
+                    class="object-cover w-16 h-16 rounded-lg"
+                  />
+                </div>
+                <div class="mr-4">
+                  <p class="font-bold">{{ product.name }}</p>
+                  <p class="font-bold text-ap-black-700">
+                    ${{ product.price }}
+                  </p>
+                </div>
+                <div class="flex w-auto h-12 ml-auto bg-ap-gray-200">
+                  <button
+                    class="px-2 text-center transition-colors duration-300 ease-in-out md:px-4 hover:bg-gray-200"
+                  >
+                    -
+                  </button>
+                  <div class="flex items-center w-4 text-center md:w-8">
+                    <p class="w-full text-center">{{ product.quantity }}</p>
+                  </div>
+                  <button
+                    class="px-2 text-center transition-colors duration-300 ease-in-out md:px-4 hover:bg-gray-200"
+                  >
+                    +
+                  </button>
+                </div>
+              </li>
+            </ul>
+            <div class="flex justify-between">
+              <p class="font-bold tracking-widest text-ap-black-700">TOTAL</p>
+              <p class="text-2xl font-bold">
+                ${{ $store.getters.getCartTotal }}
+              </p>
+            </div>
+            <div>
+              <nuxt-link
+                @click.native="toggleCartVisibility()"
+                v-if="shoppingCartItemCount > 0"
+                class="w-full btn btn-primary"
+                to="/checkout"
+                >Checkout</nuxt-link
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          @click="toggleCartVisibility()"
+          aria-label="Close shopping cart"
+          class="fixed inset-0 z-0 w-full h-full transition-opacity duration-300 ease-out bg-black bg-opacity-50"
+        ></button>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -161,6 +236,7 @@ export default {
   data() {
     return {
       sidePanelOpen: false,
+      cartIsVisible: false,
       nav: [
         {
           text: "Home",
@@ -181,9 +257,20 @@ export default {
       ]
     };
   },
+  computed: {
+    shoppingCartItemCount() {
+      return this.$store.state.cart.length;
+    },
+    itemPluralization() {
+      return this.shoppingCartItemCount === 1 ? "product" : "products";
+    }
+  },
   methods: {
     sidePanelVisibility(payload) {
       this.$store.dispatch("toggleSidepanelVisibility", payload);
+    },
+    toggleCartVisibility() {
+      this.cartIsVisible = !this.cartIsVisible;
     }
   }
 };
@@ -207,6 +294,27 @@ export default {
 }
 .slide-down-enter .content,
 .slide-down-leave-to .content {
+  @apply -translate-y-full;
+}
+
+.slide-down-right-enter-active {
+  transition: all 0.15s ease;
+}
+.slide-down-right-leave-active {
+  transition: all 0.4s ease;
+}
+.slide-down-right-enter,
+.slide-down-right-leave-to {
+  @apply bg-opacity-25;
+}
+.slide-down-right-enter-active .wrapper {
+  transition: all 0.4s ease-in-out;
+}
+.slide-down-right-leave-active .wrapper {
+  transition: all 0.35s ease-out;
+}
+.slide-down-right-enter .wrapper,
+.slide-down-right-leave-to .wrapper {
   @apply -translate-y-full;
 }
 

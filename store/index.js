@@ -27,8 +27,15 @@ export const getters = {
     return product.category;
   },
   getCartTotal: state => {
-    if (state.cart.length === 0) {
-      return 0.0;
+    if (state.cart.length) {
+      let total = 0;
+      state.cart.forEach(item => {
+        const quantityTotal = item.quantity * item.price;
+        total += quantityTotal;
+      });
+      return total.toFixed(2);
+    } else {
+      return 0;
     }
   }
 };
@@ -46,11 +53,14 @@ export const mutations = {
     const itemPositionInCart = state.cart.findIndex(
       x => x.itemId === payload.itemId
     );
+    function pushToCart() {
+      payload.quantity > 0 ? state.cart.push(payload) : null;
+    }
     if (itemPositionInCart !== -1) {
       state.cart.splice(itemPositionInCart, 1);
-      payload.quantity > 0 ? state.cart.push(payload) : null;
+      pushToCart();
     } else {
-      state.cart.push(payload);
+      pushToCart();
     }
   }
 };
