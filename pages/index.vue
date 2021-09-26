@@ -47,9 +47,10 @@
       </div>
     </div>
     <div
-      class="max-w-6xl px-6 py-24 mx-auto overflow-y-scroll md:px-10 lg:px-0"
+      class="max-w-6xl px-6 py-24 mx-auto space-y-20 overflow-y-scroll md:px-10 lg:px-0 md:space-y-32"
     >
       <category-nav />
+      <product-validation />
     </div>
   </div>
 </template>
