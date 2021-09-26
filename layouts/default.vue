@@ -193,17 +193,17 @@ export default {
   transition: all 0.15s ease;
 }
 .slide-down-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .slide-down-enter,
 .slide-down-leave-to {
   @apply bg-opacity-25;
 }
 .slide-down-enter-active .content {
-  transition: all 0.15s ease;
+  transition: all 0.4s ease-in-out;
 }
 .slide-down-leave-active .content {
-  transition: all 0.3s ease;
+  transition: all 0.35s ease-out;
 }
 .slide-down-enter .content,
 .slide-down-leave-to .content {
