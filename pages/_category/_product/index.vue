@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-6xl px-6 py-12 mx-auto space-y-20 overflow-y-scroll md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
+    class="max-w-6xl px-6 py-12 mx-auto space-y-20 md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
   >
     <div>
       <nuxt-link :to="`/${$route.params.category}`" class="block mb-6"

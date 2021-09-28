@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div
-      class="max-w-6xl px-6 py-12 mx-auto space-y-32 overflow-y-scroll md:py-24 md:px-10 lg:px-0"
+      class="max-w-6xl px-6 py-12 mx-auto space-y-32 md:py-24 md:px-10 lg:px-0"
     >
       <ul class="space-y-32 lg:space-y-40">
         <li
