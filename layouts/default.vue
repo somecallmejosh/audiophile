@@ -8,7 +8,9 @@
       >
         <button
           :aria-label="
-            sidePanelOpen ? 'Close product menu' : 'Open product menu'
+            $store.state.sidePanelIsVisible
+              ? 'Close product menu'
+              : 'Open product menu'
           "
           @click="sidePanelVisibility()"
           class="flex items-center h-full mr-auto md:mr-8 lg:hidden"
@@ -157,70 +159,11 @@
 
     <transition name="slide-down-right">
       <div
-        v-if="cartIsVisible"
+        v-if="$store.state.cartIsVisible"
         aria-label="Items in shopping cart"
         class="fixed z-10 w-screen h-screen max-h-screen overflow-y-scroll transition-transform pt-30 duration-0 lg:pt-24"
       >
-        <div class="relative w-screen max-w-6xl mx-auto">
-          <div
-            class="absolute z-10 w-11/12 p-6 space-y-12 transition-transform duration-300 ease-in-out transform -translate-x-1/2 bg-white shadow-xl left-1/2 md:max-w-md md:right-6 wrapper rounded-xl top-24 md:translate-x-0 md:left-auto lg:top-4 lg:right-0"
-          >
-            <h2 class="mb-2 text-2xl font-bold">
-              Cart ({{ shoppingCartItemCount }})
-            </h2>
-            <ul class="space-y-6">
-              <li
-                v-for="product in $store.state.cart"
-                :key="product.id"
-                class="flex items-center w-full"
-              >
-                <div class="w-16 h-16 mr-4">
-                  <img
-                    :src="`/assets/cart/image-${product.image}.jpg`"
-                    alt=""
-                    class="object-cover w-16 h-16 rounded-lg"
-                  />
-                </div>
-                <div class="mr-4">
-                  <p class="font-bold">{{ product.name }}</p>
-                  <p class="font-bold text-ap-black-700">
-                    ${{ product.price }}
-                  </p>
-                </div>
-                <div class="flex w-auto h-12 ml-auto bg-ap-gray-200">
-                  <button
-                    class="px-2 text-center transition-colors duration-300 ease-in-out md:px-4 hover:bg-gray-200"
-                  >
-                    -
-                  </button>
-                  <div class="flex items-center w-4 text-center md:w-8">
-                    <p class="w-full text-center">{{ product.quantity }}</p>
-                  </div>
-                  <button
-                    class="px-2 text-center transition-colors duration-300 ease-in-out md:px-4 hover:bg-gray-200"
-                  >
-                    +
-                  </button>
-                </div>
-              </li>
-            </ul>
-            <div class="flex justify-between">
-              <p class="font-bold tracking-widest text-ap-black-700">TOTAL</p>
-              <p class="text-2xl font-bold">
-                ${{ $store.getters.getCartTotal }}
-              </p>
-            </div>
-            <div>
-              <nuxt-link
-                @click.native="toggleCartVisibility()"
-                v-if="shoppingCartItemCount > 0"
-                class="w-full btn btn-primary"
-                to="/checkout"
-                >Checkout</nuxt-link
-              >
-            </div>
-          </div>
-        </div>
+        <cart />
         <button
           @click="toggleCartVisibility()"
           aria-label="Close shopping cart"
@@ -235,8 +178,6 @@
 export default {
   data() {
     return {
-      sidePanelOpen: false,
-      cartIsVisible: false,
       nav: [
         {
           text: "Home",
@@ -257,20 +198,12 @@ export default {
       ]
     };
   },
-  computed: {
-    shoppingCartItemCount() {
-      return this.$store.state.cart.length;
-    },
-    itemPluralization() {
-      return this.shoppingCartItemCount === 1 ? "product" : "products";
-    }
-  },
   methods: {
     sidePanelVisibility(payload) {
       this.$store.dispatch("toggleSidepanelVisibility", payload);
     },
     toggleCartVisibility() {
-      this.cartIsVisible = !this.cartIsVisible;
+      this.$store.dispatch("toggleCartVisibility");
     }
   }
 };

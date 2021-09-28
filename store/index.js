@@ -1,6 +1,7 @@
 export const state = () => ({
   products: [],
   sidePanelIsVisible: false,
+  cartIsVisible: false,
   cart: []
 });
 
@@ -49,6 +50,11 @@ export const mutations = {
       ? (state.sidePanelIsVisible = payload)
       : (state.sidePanelIsVisible = !state.sidePanelIsVisible);
   },
+  setCartVisibility(state, payload) {
+    typeof payload === "boolean"
+      ? (state.cartIsVisible = payload)
+      : (state.cartIsVisible = !state.cartIsVisible);
+  },
   setCart(state, payload) {
     const itemPositionInCart = state.cart.findIndex(
       x => x.itemId === payload.itemId
@@ -62,6 +68,27 @@ export const mutations = {
     } else {
       pushToCart();
     }
+  },
+  adjustProductCount(state, payload) {
+    const itemPositionInCart = state.cart.findIndex(
+      x => x.itemId === payload.id
+    );
+    console.log(state.cart[itemPositionInCart].quantity);
+    if (payload.direction === "increase") {
+      state.cart[itemPositionInCart].quantity++;
+    }
+    if (payload.direction === "decrease") {
+      if (state.cart[itemPositionInCart].quantity > 1) {
+        state.cart[itemPositionInCart].quantity--;
+      } else {
+        const confirmation = confirm(
+          "Are you sure you want to remove this item from your cart?"
+        );
+        if (confirmation) {
+          state.cart.splice(itemPositionInCart, 1);
+        }
+      }
+    }
   }
 };
 
@@ -72,7 +99,13 @@ export const actions = {
   async toggleSidepanelVisibility({ commit }, payload) {
     commit("setSidepanelVisibility", payload);
   },
+  async toggleCartVisibility({ commit }, payload) {
+    commit("setCartVisibility", payload);
+  },
   async updateCart({ commit }, payload) {
     commit("setCart", payload);
+  },
+  async adjustProductCount({ commit }, payload) {
+    commit("adjustProductCount", payload);
   }
 };
