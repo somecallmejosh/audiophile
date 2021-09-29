@@ -46,7 +46,7 @@
                 >
                   NEW PRODUCT
                 </p>
-                <h2 class="text-3xl font-bold lg:text-5xl">
+                <h2 class="text-3xl font-bold uppercase lg:text-5xl">
                   {{ product.name }}
                 </h2>
               </div>

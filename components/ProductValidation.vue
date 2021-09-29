@@ -22,7 +22,7 @@
     </div>
     <div class="lg:flex lg:items-center lg:text-left lg:order-0 lg:pr-24">
       <div class="w-full max-w-2xl mx-auto space-y-8 lg:max-w-reset lg:mx-0">
-        <h2 class="text-3xl font-bold capitalize lg:text-5xl">
+        <h2 class="text-3xl font-bold uppercase lg:text-5xl">
           Bringing you the <span class="text-ap-orange-200">best</span> audio
           gear
         </h2>

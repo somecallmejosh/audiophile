@@ -38,7 +38,7 @@
               >
                 New Product
               </p>
-              <h1 class="text-5xl font-bold">{{ product.name }}</h1>
+              <h1 class="text-5xl font-bold uppercase">{{ product.name }}</h1>
             </div>
             <p class="opacity-50">{{ product.description }}</p>
             <p class="text-2xl font-bold">$ {{ product.price }}</p>
@@ -84,12 +84,32 @@
         </div>
       </section>
     </div>
-    <section aria-labelledby="features">
-      <h3 id="features" class="mb-8 text-3xl font-bold">Features</h3>
-      <div
-        v-html="$md.render(product.features)"
-        class="space-y-6 opacity-50"
-      ></div>
+    <section
+      aria-labelledby="features"
+      class="grid gap-12 lg:grid-cols-3 lg:gap-24"
+    >
+      <div class="lg:col-span-2">
+        <h3 id="features" class="mb-8 text-3xl font-bold uppercase">
+          Features
+        </h3>
+        <div
+          v-html="$md.render(product.features)"
+          class="space-y-6 opacity-50"
+        ></div>
+      </div>
+      <div>
+        <h3 class="mb-8 text-3xl font-bold uppercase">In the box</h3>
+        <ul class="space-y-3">
+          <li
+            v-for="(item, index) in product.includes"
+            :key="index"
+            class="space-x-2"
+          >
+            <span class="text-ap-orange-200">{{ item.quantity }}x</span>
+            <span class="opacity-50">{{ item.item }}</span>
+          </li>
+        </ul>
+      </div>
     </section>
     <section aria-label="Product images" class="grid gap-6 md:grid-cols-4">
       <div class="space-y-6 md:col-span-2 md:row-span-2">
@@ -147,7 +167,7 @@
       </div>
     </section>
     <section aria-labelledby="may-also-like" class="text-center ">
-      <h3 id="may-also-like" class="mb-8 text-3xl font-bold">
+      <h3 id="may-also-like" class="mb-8 text-3xl font-bold uppercase">
         You may also like
       </h3>
       <ul class="grid gap-12 md:gap-6 md:grid-cols-3">
@@ -168,7 +188,7 @@
               alt="Product"
           /></picture>
           <div class="space-y-6">
-            <h2 class="text-3xl font-bold">{{ item.name }}</h2>
+            <h2 class="text-3xl font-bold uppercase">{{ item.name }}</h2>
             <nuxt-link
               :to="`/${categoryFromSlug(item.slug)}/${item.slug}`"
               class="btn btn-primary"
