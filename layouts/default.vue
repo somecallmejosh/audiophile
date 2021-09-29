@@ -30,6 +30,7 @@
         >
           <ul
             class="flex items-center h-full space-x-4 text-sm font-bold uppercase "
+            @click="toggleCartVisibility(false)"
           >
             <li
               class="flex items-center h-full"
@@ -54,7 +55,7 @@
         </button>
       </div>
     </header>
-    <main class="relative z-10 flex-grow bg-white">
+    <main class="relative z-10 flex flex-col flex-grow bg-white">
       <nuxt />
     </main>
     <footer

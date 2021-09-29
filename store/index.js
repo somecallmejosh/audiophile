@@ -2,7 +2,22 @@ export const state = () => ({
   products: [],
   sidePanelIsVisible: false,
   cartIsVisible: false,
-  cart: []
+  cart: [
+    {
+      image: "yx1-earphones",
+      itemId: 1,
+      name: "YX1 Wireless Earphones",
+      price: 599,
+      quantity: 5
+    },
+    {
+      image: "yx1-earphones",
+      itemId: 1,
+      name: "YX1 Wireless Earphones",
+      price: 599,
+      quantity: 5
+    }
+  ]
 });
 
 export const getters = {

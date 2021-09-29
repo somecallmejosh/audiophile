@@ -86,7 +86,7 @@
     </div>
     <section
       aria-labelledby="features"
-      class="grid gap-12 lg:grid-cols-3 lg:gap-24"
+      class="grid gap-12 lg:grid-cols-3 md:gap-16 lg:gap-24"
     >
       <div class="lg:col-span-2">
         <h3 id="features" class="mb-8 text-3xl font-bold uppercase">
@@ -97,7 +97,7 @@
           class="space-y-6 opacity-50"
         ></div>
       </div>
-      <div>
+      <div class="md:grid lg:block md:grid-cols-2">
         <h3 class="mb-8 text-3xl font-bold uppercase">In the box</h3>
         <ul class="space-y-3">
           <li
