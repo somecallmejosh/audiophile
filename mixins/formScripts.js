@@ -35,10 +35,10 @@ export default {
       let returnValue = "";
       if (this.requiresValidation) {
         if (this.v.$error) {
-          returnValue = "border-red-600 error";
+          returnValue = "error";
         }
       } else {
-        returnValue = "border-white";
+        returnValue = "";
       }
       return returnValue;
     },

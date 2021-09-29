@@ -1,40 +1,39 @@
 <template>
   <div class="space-y-2">
     <v-form-field-wrapper :form-wrapper-payload="formWrapperPayload">
-      <fieldset>
-        <div class="flex space-x-1">
+      <fieldset class="grid gap-6 md:grid-cols-2">
+        <div>
           <legend
             :id="`${payload.id}-label`"
             class="flex mb-1 space-x-1 font-medium"
           >
             {{ payload.label }}
           </legend>
-          <span
-            v-if="formWrapperPayload.v"
-            class="text-red-600"
-            aria-label="Required"
-            >*</span
-          >
         </div>
-        <div v-for="(option, id) in payload.options" :key="id">
-          <input
-            :id="`${payload.id}-${option.id}`"
-            v-model="dataValue"
-            :ref="`${payload.id}-${option.id}`"
-            :name="`${payload.id}-${option.id}`"
-            :value="`${option.id}`"
-            :class="classValues"
-            :type="payload.type"
-            :aria-labelledby="
-              `${payload.id}-label ${payload.id}-${option.id}-label`
-            "
-            @blur="v ? v.$touch() : ''"
-          />
+        <div class="space-y-6 ">
           <label
+            v-for="(option, id) in payload.options"
+            :key="id"
+            class="flex items-center space-x-2 border h-[56px] px-4 rounded focus:border-ap-orange-200 focus-within:border-ap-orange-200 outline-none font-bold text-sm focus-within:outline-none"
             :id="`${payload.id}-${option.id}-label`"
             :for="`${payload.id}-${option.id}`"
-            >{{ option.text }}</label
           >
+            <input
+              :id="`${payload.id}-${option.id}`"
+              v-model="dataValue"
+              :ref="`${payload.id}-${option.id}`"
+              :name="`${payload.id}-${option.id}`"
+              :value="`${option.id}`"
+              :class="classValues"
+              :type="payload.type"
+              :aria-labelledby="
+                `${payload.id}-label ${payload.id}-${option.id}-label`
+              "
+              @blur="v ? v.$touch() : ''"
+              class="text-xs text-ap-orange-200 border-[#cfcfcf] outline-none focus:ring-[#cfcfcf]"
+            />
+            <span>{{ option.text }}</span>
+          </label>
         </div>
       </fieldset>
     </v-form-field-wrapper>
@@ -65,3 +64,8 @@ export default {
   }
 };
 </script>
+<style>
+[type="radio"]:checked {
+  background-image: none !important;
+}
+</style>
