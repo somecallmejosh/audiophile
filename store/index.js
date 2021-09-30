@@ -34,7 +34,7 @@ export const getters = {
         const quantityTotal = item.quantity * item.price;
         total += quantityTotal;
       });
-      return total.toFixed(2);
+      return total;
     } else {
       return 0;
     }
@@ -68,6 +68,12 @@ export const mutations = {
     } else {
       pushToCart();
     }
+    if (process.client) {
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    }
+  },
+  replaceCartFromLocalStorage(state, payload) {
+    state.cart = payload;
   },
   adjustProductCount(state, payload) {
     const itemPositionInCart = state.cart.findIndex(
@@ -89,6 +95,9 @@ export const mutations = {
         }
       }
     }
+    if (process.client) {
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    }
   }
 };
 
@@ -107,5 +116,8 @@ export const actions = {
   },
   async adjustProductCount({ commit }, payload) {
     commit("adjustProductCount", payload);
+  },
+  async replaceCartFromLocalStorage({ commit }, payload) {
+    commit("replaceCartFromLocalStorage", payload);
   }
 };

@@ -44,7 +44,9 @@
       </ul>
       <div class="flex justify-between">
         <p class="font-bold tracking-widest text-ap-black-700">TOTAL</p>
-        <p class="text-2xl font-bold">${{ $store.getters.getCartTotal }}</p>
+        <p class="text-2xl font-bold">
+          {{ $store.getters.getCartTotal | currency }}
+        </p>
       </div>
       <div>
         <nuxt-link

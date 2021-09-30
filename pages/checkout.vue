@@ -155,21 +155,21 @@
             <div class="flex justify-between">
               <p class="font-bold tracking-widest text-ap-black-700">TOTAL</p>
               <p class="text-xl font-bold">
-                ${{ ($store.getters.getCartTotal * 1.2).toFixed(2) }}
+                {{ $store.getters.getCartTotal | currency }}
               </p>
             </div>
             <div class="flex justify-between">
               <p class="font-bold tracking-widest text-ap-black-700">
                 SHIPPING
               </p>
-              <p class="text-xl font-bold">$50</p>
+              <p class="text-xl font-bold">{{ 50 | currency }}</p>
             </div>
             <div class="flex justify-between">
               <p class="font-bold tracking-widest text-ap-black-700">
                 VAT (INCLUDED)
               </p>
               <p class="text-xl font-bold">
-                ${{ ($store.getters.getCartTotal * 0.2).toFixed(2) }}
+                {{ ($store.getters.getCartTotal * 0.2) | currency }}
               </p>
             </div>
             <div class="flex justify-between pt-6">
@@ -177,7 +177,7 @@
                 GRAND TOTAL
               </p>
               <p class="text-xl font-bold text-ap-orange-200">
-                ${{ ($store.getters.getCartTotal * 1.2 + 50).toFixed(2) }}
+                {{ ($store.getters.getCartTotal * 1.2 + 50) | currency }}
               </p>
             </div>
           </div>

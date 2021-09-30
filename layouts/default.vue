@@ -205,6 +205,15 @@ export default {
     toggleCartVisibility() {
       this.$store.dispatch("toggleCartVisibility");
     }
+  },
+  mounted() {
+    const cartLength = this.$store.state.cart.length;
+    cartLength === 0 && localStorage.getItem("cart")
+      ? this.$store.dispatch(
+          "replaceCartFromLocalStorage",
+          JSON.parse(localStorage.getItem("cart"))
+        )
+      : null;
   }
 };
 </script>
