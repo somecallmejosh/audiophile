@@ -47,9 +47,132 @@
       </div>
     </div>
     <div
-      class="max-w-6xl px-6 py-24 mx-auto space-y-20 md:px-10 lg:px-0 md:space-y-32"
+      class="max-w-6xl px-6 py-24 mx-auto space-y-20 md:px-10 lg:px-0 md:space-y-24"
     >
       <category-nav />
+      <section aria-label="Product teasers" class="space-y-12">
+        <div
+          class="relative grid gap-6 px-12 py-16 overflow-hidden rounded-2xl bg-ap-orange-200 lg:grid-cols-2 lg:items-center"
+        >
+          <div class="relative z-10 mx-auto lg:mx-0 lg:min-h-[420px]">
+            <picture
+              ><source
+                srcset="/assets/home/desktop/image-speaker-zx9.png"
+                media="(min-width: 1024px)"/>
+              <source
+                srcset="/assets/home/tablet/image-speaker-zx9.png"
+                media="(min-width: 768px)"/>
+              <source
+                srcset="/assets/home/mobile/image-speaker-zx9.png"
+                media="(min-width: 300px)"/>
+              <img
+                src="/assets/home/desktop/image-speaker-zx9.png"
+                alt="Zx9 Speaker"
+                height="388"
+                width="320"
+                class="w-40 h-auto md:w-60 lg:w-[410px] lg:absolute"
+            /></picture>
+          </div>
+          <div
+            class="relative z-10 space-y-6 text-center lg:text-left lg:pr-32"
+          >
+            <h2 class="text-5xl font-bold text-white uppercase">ZX9 Speaker</h2>
+            <p class="font-thin text-white opacity-75">
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
+            </p>
+            <nuxt-link to="/speakers/zx9-speaker" class="btn-secondary-alt"
+              >See Product</nuxt-link
+            >
+          </div>
+          <div
+            class="absolute top-0 z-0 transform -translate-x-1/2 -translate-y-1/4 w-[600px] h-[600px] left-1/2 opacity-25 lg:left-0 lg:-translate-y-12 lg:-translate-x-40 lg:h-[944px] lg:w-[944px]"
+          >
+            <svg
+              class="w-full h-full"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 944 944"
+            >
+              <g>
+                <circle
+                  cx="472"
+                  cy="472"
+                  r="235.5"
+                  style="fill:none;stroke:#fff"
+                />
+                <circle
+                  cx="472"
+                  cy="472"
+                  r="270.5"
+                  style="fill:none;stroke:#fff"
+                />
+                <circle
+                  cx="472"
+                  cy="472"
+                  r="471.5"
+                  style="fill:none;stroke:#fff"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded-2xl">
+          <picture
+            ><source
+              srcset="/assets/home/desktop/image-speaker-zx7.jpg"
+              media="(min-width: 1024px)"/>
+            <source
+              srcset="/assets/home/tablet/image-speaker-zx7.jpg"
+              media="(min-width: 768px)"/>
+            <source
+              srcset="/assets/home/mobile/image-speaker-zx7.jpg"
+              media="(min-width: 300px)"/>
+            <img
+              src="/assets/home/desktop/image-speaker-zx7.jpg"
+              alt="Zx9 Speaker"
+              height="388"
+              width="320"
+              class="object-cover w-full"
+          /></picture>
+          <div
+            class="absolute space-y-8 transform -translate-y-1/2 top-1/2 left-12"
+          >
+            <h2 class="text-4xl font-bold uppercase">ZX7 Speaker</h2>
+            <nuxt-link class="btn-secondary" to="/speakers/zx7-speaker"
+              >See Product</nuxt-link
+            >
+          </div>
+        </div>
+        <div class="grid gap-6 md:gap-12 md:grid-cols-2">
+          <div class="overflow-hidden rounded-2xl">
+            <picture
+              ><source
+                srcset="/assets/home/desktop/image-earphones-yx1.jpg"
+                media="(min-width: 1024px)"/>
+              <source
+                srcset="/assets/home/tablet/image-earphones-yx1.jpg"
+                media="(min-width: 768px)"/>
+              <source
+                srcset="/assets/home/mobile/image-earphones-yx1.jpg"
+                media="(min-width: 300px)"/>
+              <img
+                src="/assets/home/desktop/image-earphones-yx1.jpg"
+                alt="Zx9 Speaker"
+                height="388"
+                width="320"
+                class="object-cover w-full"
+            /></picture>
+          </div>
+          <div class="flex items-center px-12 bg-ap-gray-200 rounded-2xl">
+            <div class="py-12 space-y-6">
+              <h2 class="text-4xl font-bold uppercase">ZX7 Speaker</h2>
+              <nuxt-link class="btn-secondary" to="/earphones/yx1-earphones"
+                >See Product</nuxt-link
+              >
+            </div>
+          </div>
+        </div>
+      </section>
       <product-validation />
     </div>
   </div>

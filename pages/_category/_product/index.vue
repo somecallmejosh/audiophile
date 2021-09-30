@@ -55,11 +55,13 @@
                 >
                   -
                 </button>
-                <input
-                  type="text"
-                  v-model="productCounter"
-                  class="w-8 text-center bg-ap-gray-200"
-                />
+                <div
+                  aria-label="Product item count"
+                  aria-live="assertive"
+                  class="flex items-center justify-center w-8 text-center bg-ap-gray-200"
+                >
+                  {{ productCounter }}
+                </div>
                 <button
                   @click="productCounter++"
                   class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"

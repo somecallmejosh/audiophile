@@ -30,7 +30,6 @@
         >
           <ul
             class="flex items-center h-full space-x-4 text-sm font-bold uppercase "
-            @click="toggleCartVisibility(false)"
           >
             <li
               class="flex items-center h-full"
@@ -253,7 +252,8 @@ export default {
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-secondary-alt {
   @apply h-12 px-8 inline-flex items-center justify-center text-center uppercase tracking-widest font-bold transition-colors duration-200 ease-in-out border text-sm;
 }
 
@@ -261,6 +261,9 @@ export default {
   @apply bg-ap-orange-200 hover:bg-ap-orange-100 border-ap-orange-200 hover:border-ap-orange-100 text-white;
 }
 .btn-secondary {
-  @apply bg-white hover:bg-black hover:text-white border-black;
+  @apply bg-transparent hover:bg-black hover:text-white border-black;
+}
+.btn-secondary-alt {
+  @apply hover:bg-white bg-black text-white hover:text-black border-black;
 }
 </style>
