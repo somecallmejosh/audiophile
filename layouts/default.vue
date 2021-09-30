@@ -48,9 +48,14 @@
         <button
           @click="toggleCartVisibility()"
           aria-label="View shopping cart"
-          class="flex items-center h-full ml-auto hover:text-ap-orange-200 lg:w-1/3 lg:justify-end"
+          class="flex items-center h-full ml-auto hover:text-ap-orange-200 lg:w-1/3 lg:justify-end group"
         >
           <icon-cart />
+          <span
+            v-if="$store.state.cart.length"
+            class="flex items-center justify-center w-3 h-3 text-black transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full group-hover:bg-ap-orange-200 "
+            >+</span
+          >
         </button>
       </div>
     </header>
