@@ -3,7 +3,9 @@
     class="max-w-6xl px-6 py-12 mx-auto space-y-20 md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
   >
     <div>
-      <nuxt-link :to="`/${$route.params.category}`" class="block mb-6"
+      <nuxt-link
+        :to="`/${$route.params.category}`"
+        class="block mb-6 transition-colors duration-150 hover:text-ap-orange-200"
         >Go Back</nuxt-link
       >
       <section
@@ -43,28 +45,28 @@
             <p class="opacity-50">{{ product.description }}</p>
             <p class="text-2xl font-bold">$ {{ product.price }}</p>
             <div class="flex items-center space-x-6">
-              <div class="flex w-auto h-12 bg-ap-gray-200">
+              <div class="flex w-auto h-12 ">
                 <button
                   @click="productCounter >= 1 ? productCounter-- : ''"
-                  class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+                  class="px-4 text-center transition-colors duration-300 ease-in-out bg-ap-gray-200"
                   :class="
                     productCounter === 0
                       ? 'opacity-25 pointer-events-none'
-                      : 'opacity-100'
+                      : 'hover:bg-opacity-75 hover:text-ap-orange-200'
                   "
                 >
                   -
                 </button>
                 <div
-                  aria-label="Product item count"
                   aria-live="assertive"
                   class="flex items-center justify-center w-8 text-center bg-ap-gray-200"
                 >
+                  <span class="sr-only">Item count:</span>
                   {{ productCounter }}
                 </div>
                 <button
                   @click="productCounter++"
-                  class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+                  class="px-4 text-center transition-colors duration-300 ease-in-out bg-ap-gray-200 hover:bg-opacity-75 hover:text-ap-orange-200"
                 >
                   +
                 </button>
@@ -91,9 +93,9 @@
       class="grid gap-12 lg:grid-cols-3 md:gap-16 lg:gap-24"
     >
       <div class="lg:col-span-2">
-        <h3 id="features" class="mb-8 text-3xl font-bold uppercase">
+        <h2 id="features" class="mb-8 text-3xl font-bold uppercase">
           Features
-        </h3>
+        </h2>
         <div
           v-html="$md.render(product.features)"
           class="space-y-6 opacity-50"
@@ -194,6 +196,7 @@
             <nuxt-link
               :to="`/${categoryFromSlug(item.slug)}/${item.slug}`"
               class="btn btn-primary"
+              :aria-label="`Production information for ${item.name}`"
               >See Product</nuxt-link
             >
           </div>

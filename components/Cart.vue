@@ -15,7 +15,7 @@
           <div class="flex-shrink-0 w-16 h-16 mr-4">
             <img
               :src="`/assets/cart/image-${product.image}.jpg`"
-              alt=""
+              :alt="product.name"
               class="object-cover w-16 h-16 rounded-lg"
             />
           </div>
@@ -23,19 +23,21 @@
             <p class="font-bold">{{ product.name }}</p>
             <p class="font-bold text-ap-black-700">${{ product.price }}</p>
           </div>
-          <div class="flex flex-shrink-0 w-auto h-12 ml-auto bg-ap-gray-200">
+          <div class="flex flex-shrink-0 w-auto h-12 ml-auto ">
             <button
               @click="adjustProductCount('decrease', product.itemId)"
-              class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+              class="px-4 text-center transition-colors duration-300 ease-in-out bg-ap-gray-200 hover:bg-opacity-75 hover:text-ap-orange-200"
             >
               -
             </button>
-            <div class="flex items-center w-8 text-center md:w-8">
+            <div
+              class="flex items-center w-8 text-center md:w-8 bg-ap-gray-200"
+            >
               <p class="w-full text-center">{{ product.quantity }}</p>
             </div>
             <button
               @click="adjustProductCount('increase', product.itemId)"
-              class="px-4 text-center transition-colors duration-300 ease-in-out hover:bg-gray-200"
+              class="px-4 text-center transition-colors duration-300 ease-in-out bg-ap-gray-200 hover:bg-opacity-75 hover:text-ap-orange-200"
             >
               +
             </button>

@@ -11,6 +11,7 @@
           >
             <nuxt-img
               class="absolute top-0 w-48 transition-all duration-200 ease-in-out transform -translate-x-1/2 left-1/2 -translate-y-1/3 group-hover:scale-110"
+              :alt="category"
               :src="
                 `/assets/shared/desktop/image-category-thumbnail-${category}.png`
               "
@@ -18,11 +19,17 @@
             <p class="mb-2 font-bold">{{ category }}</p>
             <div class="flex items-center justify-center space-x-1">
               <p
-                class="text-sm font-bold transition-opacity duration-200 ease-in-out opacity-50 group-hover:opacity-100"
+                class="text-sm font-bold transition-opacity duration-200 ease-in-out opacity-50 group-hover:opacity-100 group-hover:text-ap-orange-200"
               >
                 Shop
               </p>
-              <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                aria-hidden="true"
+                role="img"
+                width="8"
+                height="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M1.322 1l5 5-5 5"
                   stroke="#D87D4A"

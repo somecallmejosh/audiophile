@@ -25,7 +25,7 @@
           ><logo
         /></nuxt-link>
         <nav
-          aria-label="Site Nav"
+          aria-label="Header Site Nav"
           class="hidden h-full tracking-widest lg:flex site-nav lg:mx-auto lg:w-1/3"
         >
           <ul
@@ -73,7 +73,7 @@
             <logo class="block mx-auto mb-12 md:mb-8 md:mx-0 lg:m-0" />
           </nuxt-link>
           <nav
-            aria-label="Site Nav"
+            aria-label="Footer Site Nav"
             class="flex h-full mx-auto mb-12 site-nav justify-self-center md:m-0"
           >
             <ul

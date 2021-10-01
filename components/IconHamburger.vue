@@ -1,6 +1,6 @@
 <template>
   <svg
-    aria-hidden
+    aria-hidden="true"
     role="img"
     width="16"
     height="15"

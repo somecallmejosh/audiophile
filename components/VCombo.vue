@@ -2,14 +2,9 @@
   <div class="space-y-2">
     <v-form-field-wrapper :form-wrapper-payload="formWrapperPayload">
       <fieldset class="grid gap-6 md:grid-cols-2">
-        <div>
-          <legend
-            :id="`${payload.id}-label`"
-            class="flex mb-1 space-x-1 font-medium"
-          >
-            {{ payload.label }}
-          </legend>
-        </div>
+        <h3 :id="`${payload.id}-label`" class="block mb-1 space-x-1 font-bold">
+          <span>{{ payload.label }}</span>
+        </h3>
         <div class="space-y-6 ">
           <label
             v-for="(option, id) in payload.options"

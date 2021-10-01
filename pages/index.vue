@@ -81,7 +81,10 @@
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <nuxt-link to="/speakers/zx9-speaker" class="btn-secondary-alt"
+            <nuxt-link
+              to="/speakers/zx9-speaker"
+              class="btn-secondary-alt"
+              aria-label="Produce information about the ZX9 speaker"
               >See Product</nuxt-link
             >
           </div>
@@ -89,6 +92,8 @@
             class="absolute top-0 z-0 transform -translate-x-1/2 -translate-y-1/4 w-[600px] h-[600px] left-1/2 opacity-25 lg:left-0 lg:-translate-y-12 lg:-translate-x-40 lg:h-[944px] lg:w-[944px]"
           >
             <svg
+              aria-hidden="true"
+              role="img"
               class="w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 944 944"
@@ -138,7 +143,10 @@
             class="absolute space-y-8 transform -translate-y-1/2 top-1/2 left-12"
           >
             <h2 class="text-4xl font-bold uppercase">ZX7 Speaker</h2>
-            <nuxt-link class="btn-secondary" to="/speakers/zx7-speaker"
+            <nuxt-link
+              class="btn-secondary"
+              to="/speakers/zx7-speaker"
+              aria-label="More information about the ZX7 speaker"
               >See Product</nuxt-link
             >
           </div>
@@ -165,8 +173,11 @@
           </div>
           <div class="flex items-center px-12 bg-ap-gray-200 rounded-2xl">
             <div class="py-12 space-y-6">
-              <h2 class="text-4xl font-bold uppercase">ZX7 Speaker</h2>
-              <nuxt-link class="btn-secondary" to="/earphones/yx1-earphones"
+              <h2 class="text-4xl font-bold uppercase">YX1 Earphones</h2>
+              <nuxt-link
+                class="btn-secondary"
+                to="/earphones/yx1-earphones"
+                aria-label="More information about the YX1 earphones"
                 >See Product</nuxt-link
               >
             </div>

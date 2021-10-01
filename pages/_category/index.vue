@@ -56,6 +56,7 @@
               <nuxt-link
                 class="btn btn-primary"
                 :to="`/${$route.params.category}/${product.slug}`"
+                :aria-label="`Product information for ${product.name}`"
                 >See product</nuxt-link
               >
             </div>
