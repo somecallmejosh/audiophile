@@ -194,7 +194,7 @@
     </form>
     <div
       v-else
-      class="flex flex-col w-full max-w-6xl gap-6 px-6 py-12 mx-auto md:px-10 lg:px-0 lg:grid-cols-5 lg:space-y-0 lg:gap-6"
+      class="flex flex-col w-full max-w-6xl px-6 py-12 mx-auto space-y-6 md:px-10 lg:px-0"
     >
       <h1 class="text-2xl font-bold tracking-wider uppercase">
         Cart is <span class="text-ap-orange-200">empty</span>
