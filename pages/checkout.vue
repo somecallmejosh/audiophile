@@ -126,8 +126,8 @@
             </p>
           </div>
         </div>
-        <div class=" lg:col-span-2">
-          <div class="p-8 space-y-6 bg-white rounded-2xl">
+        <div class="lg:col-span-2">
+          <div class="p-8 space-y-6 bg-white lg:top-6 rounded-2xl lg:sticky">
             <h2 class="text-xl font-bold tracking-wider uppercase">Summary</h2>
             <ul class="space-y-4">
               <li
@@ -214,7 +214,7 @@
         class="fixed inset-0 z-40 flex items-center justify-center w-screen h-full max-h-full pt-20 overflow-y-scroll transition-transform duration-0 lg:pt-24"
       >
         <div
-          class="fixed z-40 w-11/12 p-6 space-y-6 overflow-y-scroll transition-transform duration-300 ease-in-out transform bg-white shadow-xl md:w-full max-w-11/12 md:max-w-xl content rounded-2xl h-4/5"
+          class="fixed z-40 w-11/12 p-6 space-y-6 overflow-y-scroll transition-transform duration-300 ease-in-out transform bg-white shadow-xl md:w-full max-w-11/12 md:max-w-xl content rounded-2xl h-4/5 md:h-auto"
         >
           <span
             class="flex items-center justify-center w-20 h-20 text-white rounded-full md:w-24 md:h-24 bg-ap-orange-200"
@@ -230,7 +230,7 @@
             </p>
           </div>
           <div
-            class="grid overflow-hidden md:gap-6 md:grid-cols-2 rounded-2xl bg-ap-gray-200"
+            class="grid overflow-hidden md:grid-cols-2 rounded-2xl bg-ap-gray-200"
           >
             <div class="p-4 space-y-4 divide-y divide-black divide-opacity-25">
               <div class="flex items-center w-full">
@@ -253,7 +253,7 @@
                   </p>
                 </div>
               </div>
-              <div class="pt-2 text-center">
+              <div v-if="$store.state.cart.length > 1" class="pt-2 text-center">
                 <p class="font-bold opacity-50">
                   and {{ $store.state.cart.length - 1 }} item(s)
                 </p>
@@ -474,6 +474,12 @@ export default Vue.extend({
       this.$v.form.$touch();
       if (!this.$v.form.$invalid) {
         this.isPaid = true;
+      } else {
+        window.scrollTo({
+          behavior: "smooth",
+          left: "0",
+          top: "0"
+        });
       }
     },
     emptyCart() {
