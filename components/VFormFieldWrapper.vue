@@ -33,7 +33,7 @@
           v-if="!formWrapperPayload.v.$invalid"
           class="absolute inset-y-0 right-0 flex items-center pr-3 text-green-500 pointer-events-none"
         >
-          <icon-check />
+          <icon-check class="w-6 h-6" />
         </div>
       </template>
     </div>

@@ -98,6 +98,12 @@ export const mutations = {
     if (process.client) {
       localStorage.setItem("cart", JSON.stringify(state.cart));
     }
+  },
+  emptyCart(state) {
+    state.cart = [];
+    if (process.client) {
+      localStorage.removeItem("cart");
+    }
   }
 };
 
@@ -119,5 +125,8 @@ export const actions = {
   },
   async replaceCartFromLocalStorage({ commit }, payload) {
     commit("replaceCartFromLocalStorage", payload);
+  },
+  async emptyCart({ commit }) {
+    commit("emptyCart");
   }
 };

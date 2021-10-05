@@ -63,7 +63,7 @@
       <nuxt />
     </main>
     <footer
-      class="relative z-10 px-6 pt-12 pb-10 text-white bg-ap-black-800 md:px-10 lg:px-0"
+      class="relative z-0 px-6 pt-12 pb-10 text-white bg-ap-black-800 md:px-10 lg:px-0"
     >
       <div class="max-w-6xl mx-auto">
         <div
