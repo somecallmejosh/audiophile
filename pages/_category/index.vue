@@ -1,6 +1,9 @@
 <template>
   <div class="category-view">
-    <div class="px-6 py-8 text-center text-white bg-ap-black-800 md:py-24">
+    <div
+      v-if="categories.length"
+      class="px-6 py-8 text-center text-white bg-ap-black-800 md:py-24"
+    >
       <h1 class="text-2xl font-bold tracking-widest uppercase">
         {{ $route.params.category }}
       </h1>
@@ -8,7 +11,7 @@
     <div
       class="max-w-6xl px-6 py-12 mx-auto space-y-32 md:py-24 md:px-10 lg:px-0"
     >
-      <ul class="space-y-32 lg:space-y-40">
+      <ul v-if="categories.length" class="space-y-32 lg:space-y-40">
         <li
           v-for="(product, index) in categories"
           :key="product.id"
@@ -63,10 +66,26 @@
           </div>
         </li>
       </ul>
+      <div v-else class="space-y-2 text-center">
+        <h2 class="text-3xl font-bold tracking-wider uppercase">
+          <em>"{{ $route.params.category }}"</em>
+          <span class="text-ap-orange-200">Not Found</span>
+        </h2>
+        <div>
+          <p class="text-lg opacity-50">
+            We don't have any products associated with the category
+            <strong>{{ $route.params.category }}</strong
+            >.
+          </p>
+          <p class="text-lg opacity-50">
+            Check out one of the category links below.
+          </p>
+        </div>
+      </div>
       <div class="pt-16">
         <category-nav />
       </div>
-      <product-validation />
+      <product-validation v-if="categories.length" />
     </div>
   </div>
 </template>

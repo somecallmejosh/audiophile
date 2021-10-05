@@ -18,5 +18,5 @@ Users should be able to:
 - [x] See correct checkout totals depending on the products in the cart
   - [x] Shipping always adds \$50 to the order
   - [x] VAT is calculated as 20% of the product total, excluding shipping
-- [ ] See an order confirmation modal after checking out with an order summary
+- [x] See an order confirmation modal after checking out with an order summary
 - [x] **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)

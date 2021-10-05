@@ -1,14 +1,15 @@
 <template>
   <div
-    class="max-w-6xl px-6 py-12 mx-auto space-y-20 md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
+    class="w-full max-w-6xl px-6 py-12 mx-auto space-y-20 md:py-24 md:space-y-32 md:px-10 lg:px-0 product-page"
   >
-    <div>
+    <div v-if="product">
       <nuxt-link
         :to="`/${$route.params.category}`"
         class="block mb-6 transition-colors duration-150 hover:text-ap-orange-200"
         >Go Back</nuxt-link
       >
       <section
+        v-if="product"
         aria-label="Product Details"
         class="grid gap-8 md:grid-cols-9 md:gap-12 lg:gap-24"
       >
@@ -89,6 +90,7 @@
       </section>
     </div>
     <section
+      v-if="product"
       aria-labelledby="features"
       class="grid gap-12 lg:grid-cols-3 md:gap-16 lg:gap-24"
     >
@@ -115,7 +117,11 @@
         </ul>
       </div>
     </section>
-    <section aria-label="Product images" class="grid gap-6 md:grid-cols-4">
+    <section
+      v-if="product"
+      aria-label="Product images"
+      class="grid gap-6 md:grid-cols-4"
+    >
       <div class="space-y-6 md:col-span-2 md:row-span-2">
         <div>
           <picture
@@ -170,7 +176,11 @@
         /></picture>
       </div>
     </section>
-    <section aria-labelledby="may-also-like" class="text-center ">
+    <section
+      v-if="product"
+      aria-labelledby="may-also-like"
+      class="text-center "
+    >
       <h3 id="may-also-like" class="mb-8 text-3xl font-bold uppercase">
         You may also like
       </h3>
@@ -203,10 +213,26 @@
         </li>
       </ul>
     </section>
-    <div class="pt-16">
+    <div v-else class="space-y-2 text-center">
+      <h2 class="text-3xl font-bold tracking-wider uppercase">
+        <em>"{{ $route.params.product }}"</em>
+        <span class="text-ap-orange-200">Not Found</span>
+      </h2>
+      <div>
+        <p class="text-lg opacity-50">
+          We don't have any <strong>{{ $route.params.category }}</strong> by the
+          name of <strong>{{ $route.params.product }}</strong
+          >.
+        </p>
+        <p class="text-lg opacity-50">
+          Check out one of the category links below.
+        </p>
+      </div>
+    </div>
+    <div class="w-full pt-16">
       <category-nav />
     </div>
-    <product-validation />
+    <product-validation v-if="product" />
   </div>
 </template>
 
