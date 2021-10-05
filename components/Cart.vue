@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-screen max-w-6xl mx-auto">
     <div
-      class="absolute z-10 w-11/12 p-4 space-y-12 transition-transform duration-300 ease-in-out transform -translate-x-1/2 bg-white shadow-xl left-1/2 md:max-w-md md:right-6 wrapper rounded-xl top-24 md:translate-x-0 md:left-auto lg:top-4 lg:right-0"
+      class="absolute z-10 w-11/12 p-4 space-y-12 transition-transform duration-300 ease-in-out transform -translate-x-1/2 bg-white shadow-xl md:p-6 left-1/2 md:max-w-md md:right-6 wrapper rounded-xl top-24 md:translate-x-0 md:left-auto lg:top-4 lg:right-0"
     >
       <div class="flex justify-between">
         <h2 class="mb-2 text-2xl font-bold">

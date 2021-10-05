@@ -140,9 +140,11 @@
               class="object-cover w-full"
           /></picture>
           <div
-            class="absolute space-y-8 transform -translate-y-1/2 top-1/2 left-12"
+            class="absolute space-y-6 transform -translate-y-1/2 md:space-y-8 top-1/2 left-6 md:left-12"
           >
-            <h2 class="text-4xl font-bold uppercase">ZX7 Speaker</h2>
+            <h2 class="text-3xl font-bold uppercase md:text-4xl">
+              ZX7 Speaker
+            </h2>
             <nuxt-link
               class="btn-secondary"
               to="/speakers/zx7-speaker"
@@ -171,9 +173,13 @@
                 class="object-cover w-full"
             /></picture>
           </div>
-          <div class="flex items-center px-12 bg-ap-gray-200 rounded-2xl">
+          <div
+            class="flex items-center px-6 md:px-12 bg-ap-gray-200 rounded-2xl"
+          >
             <div class="py-12 space-y-6">
-              <h2 class="text-4xl font-bold uppercase">YX1 Earphones</h2>
+              <h2 class="text-3xl font-bold uppercase md:text-4xl">
+                YX1 Earphones
+              </h2>
               <nuxt-link
                 class="btn-secondary"
                 to="/earphones/yx1-earphones"
