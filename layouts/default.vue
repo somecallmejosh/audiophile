@@ -65,7 +65,7 @@
     <footer
       class="relative z-0 px-6 pt-12 pb-10 text-white bg-ap-black-800 md:px-10 lg:px-0"
     >
-      <div class="max-w-6xl mx-auto">
+      <div class="relative max-w-6xl mx-auto">
         <div
           class="flex flex-col justify-center max-w-6xl mx-auto mb-0 text-center md:mb-9 lg:flex-row lg:items-center lg:justify-between"
         >
@@ -141,6 +141,9 @@
             </ul>
           </nav>
         </div>
+        <div
+          class="absolute w-24 h-2 transform -translate-x-1/2 md:translate-x-0 left-1/2 md:left-0 -top-12 bg-ap-orange-200"
+        ></div>
       </div>
     </footer>
     <transition name="slide-down">
