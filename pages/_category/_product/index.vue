@@ -322,6 +322,36 @@ export default {
           hid: "og:url",
           property: "og:url",
           content: `https://fem-audiophile.netlify.app/${this.$route.params.category}/${this.$route.params.product}`
+        },
+        {
+          hid: "twitter:card",
+          property: "twitter:card",
+          content: "summary_large_image"
+        },
+        {
+          hid: "twitter:site",
+          property: "twitter:site",
+          content: "@joshuabriley"
+        },
+        {
+          hid: "twitter:creator",
+          property: "twitter:creator",
+          content: "@joshuabriley"
+        },
+        {
+          hid: "twitter:title",
+          property: "twitter:title",
+          content: `Audiophile ${this.product.name}`
+        },
+        {
+          hid: "twitter:description",
+          property: "twitter:description",
+          content: this.product.description
+        },
+        {
+          hid: "twitter:image",
+          property: "twitter:image",
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_600,w_1200/v1633515823/image-hero_i2rxrn.jpg`
         }
       ]
     };
