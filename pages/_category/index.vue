@@ -105,6 +105,49 @@ export default {
         this.$route.params.category
       );
     }
+  },
+  head() {
+    return {
+      title: `Audiophile ${this.$route.params.category}`,
+      link: [
+        {
+          rel: "canonical",
+          href: `https://fem-audiophile.netlify.app/${this.$route.params.category}/`
+        }
+      ],
+      meta: [
+        {
+          hid: "robots",
+          name: "robots",
+          content: "noindex"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: `An assortment of premium quality Audiophile ${this.$route.params.category}.`
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: `Audiophile ${this.$route.params.category}`
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: `An assortment of premium quality Audiophile ${this.$route.params.category}.`
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://fem-audiophile.netlify.app/${this.$route.params.category}/`
+        }
+      ]
+    };
   }
 };
 </script>

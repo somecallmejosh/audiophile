@@ -204,6 +204,49 @@ export default Vue.extend({
     const product = await $dataApi.getProduct();
     store.dispatch("fetchProducts", product);
   },
-  components: { VButton }
+  components: { VButton },
+  head() {
+    return {
+      title: "Audiophile",
+      link: [
+        {
+          rel: "canonical",
+          href: "https://fem-audiophile.netlify.app/"
+        }
+      ],
+      meta: [
+        {
+          hid: "robots",
+          name: "robots",
+          content: "noindex"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: "Premium headphones, earphones, and speakers."
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Audiophile"
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Premium headphones, earphones, and speakers"
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://fem-audiophile.netlify.app/"
+        }
+      ]
+    };
+  }
 });
 </script>

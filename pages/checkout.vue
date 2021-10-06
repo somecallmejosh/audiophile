@@ -487,6 +487,49 @@ export default Vue.extend({
       this.$store.dispatch("emptyCart");
       this.$router.push("/");
     }
+  },
+  head() {
+    return {
+      title: "Audiophile Checkout",
+      link: [
+        {
+          rel: "canonical",
+          href: "https://fem-audiophile.netlify.app/checkout"
+        }
+      ],
+      meta: [
+        {
+          hid: "robots",
+          name: "robots",
+          content: "noindex"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: "Checkout page for audiophile shopping cart products"
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Audiophile Checkout"
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Checkout page for audiophile shopping cart products"
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://fem-audiophile.netlify.app/checkout"
+        }
+      ]
+    };
   }
 });
 </script>

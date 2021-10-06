@@ -282,6 +282,49 @@ export default {
     categoryFromSlug(slug) {
       return this.$store.getters.getCategoryFromSlug(slug);
     }
+  },
+  head() {
+    return {
+      title: `Audiophile ${this.product.name}`,
+      link: [
+        {
+          rel: "canonical",
+          href: `https://fem-audiophile.netlify.app/${this.$route.params.category}/${this.$route.params.product}`
+        }
+      ],
+      meta: [
+        {
+          hid: "robots",
+          name: "robots",
+          content: "noindex"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.product.description
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: `Audiophile ${this.product.name}`
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.product.description
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://fem-audiophile.netlify.app/${this.$route.params.category}/${this.$route.params.product}`
+        }
+      ]
+    };
   }
 };
 </script>
