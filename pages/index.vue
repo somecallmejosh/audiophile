@@ -233,7 +233,7 @@ export default Vue.extend({
         {
           hid: "og:image",
           property: "og:image",
-          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_627,w_1200/v1633527810/audiophile-social-card_eggkdu.jpg`
         },
         {
           hid: "og:description",
@@ -273,7 +273,7 @@ export default Vue.extend({
         {
           hid: "twitter:image",
           property: "twitter:image",
-          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_600,w_1200/v1633515823/image-hero_i2rxrn.jpg`
+          content: `https://res.cloudinary.com/dwjulenau/image/upload/c_scale,h_600,w_1200/v1633527810/audiophile-social-card_eggkdu.jpg`
         }
       ]
     };
